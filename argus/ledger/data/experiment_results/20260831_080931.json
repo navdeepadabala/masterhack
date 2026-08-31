@@ -1,0 +1,321 @@
+{
+  "name": "experiment_results",
+  "version": "20260831_080931",
+  "generated_at": "2026-08-31T08:09:31.888882Z",
+  "data": {
+    "n_seeds": 1,
+    "n_rounds": 5,
+    "per_seed": [
+      {
+        "seed": 42,
+        "wraith_results": {
+          "wraith_linucb": {
+            "policy_name": "wraith_linucb",
+            "rewards_per_round": [
+              1022.9363317946325,
+              994.0271748985944,
+              1055.2448381289346,
+              10.675680873171613,
+              9.832361915911983
+            ],
+            "components_per_round": [
+              {
+                "fidelity_value": 1023.0363317946325,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1022.9363317946325
+              },
+              {
+                "fidelity_value": 994.1271748985944,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 994.0271748985944
+              },
+              {
+                "fidelity_value": 1055.3448381289345,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1055.2448381289346
+              },
+              {
+                "fidelity_value": 10.775680873171613,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.675680873171613
+              },
+              {
+                "fidelity_value": 9.932361915911983,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 9.832361915911983
+              }
+            ],
+            "cumulative_rewards": [
+              1022.9363317946325,
+              2016.963506693227,
+              3072.2083448221615,
+              3082.884025695333,
+              3092.716387611245
+            ],
+            "avg_reward": 618.543277522249,
+            "n_rounds": 5
+          },
+          "random": {
+            "policy_name": "random",
+            "rewards_per_round": [
+              1022.9363317946325,
+              994.0271748985944,
+              1055.2448381289346,
+              10.675680873171613,
+              9.832361915911983
+            ],
+            "components_per_round": [
+              {
+                "fidelity_value": 1023.0363317946325,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1022.9363317946325
+              },
+              {
+                "fidelity_value": 994.1271748985944,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 994.0271748985944
+              },
+              {
+                "fidelity_value": 1055.3448381289345,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1055.2448381289346
+              },
+              {
+                "fidelity_value": 10.775680873171613,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.675680873171613
+              },
+              {
+                "fidelity_value": 9.932361915911983,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 9.832361915911983
+              }
+            ],
+            "cumulative_rewards": [
+              1022.9363317946325,
+              2016.963506693227,
+              3072.2083448221615,
+              3082.884025695333,
+              3092.716387611245
+            ],
+            "avg_reward": 618.543277522249,
+            "n_rounds": 5
+          },
+          "rule_mutation": {
+            "policy_name": "rule_mutation",
+            "rewards_per_round": [
+              1022.9363317946325,
+              994.0271748985944,
+              1055.2448381289346,
+              10.675680873171613,
+              9.832361915911983
+            ],
+            "components_per_round": [
+              {
+                "fidelity_value": 1023.0363317946325,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1022.9363317946325
+              },
+              {
+                "fidelity_value": 994.1271748985944,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 994.0271748985944
+              },
+              {
+                "fidelity_value": 1055.3448381289345,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1055.2448381289346
+              },
+              {
+                "fidelity_value": 10.775680873171613,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.675680873171613
+              },
+              {
+                "fidelity_value": 9.932361915911983,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 9.832361915911983
+              }
+            ],
+            "cumulative_rewards": [
+              1022.9363317946325,
+              2016.963506693227,
+              3072.2083448221615,
+              3082.884025695333,
+              3092.716387611245
+            ],
+            "avg_reward": 618.543277522249,
+            "n_rounds": 5
+          }
+        },
+        "sentinel_generations": [
+          {
+            "generation": 0,
+            "split_sizes": {},
+            "evaluation": {
+              "roc_auc": 0.5,
+              "recall": 0.0,
+              "precision": 0.0
+            },
+            "ensemble": {}
+          },
+          {
+            "generation": 1,
+            "split_sizes": {},
+            "evaluation": {
+              "roc_auc": 0.5,
+              "recall": 0.0,
+              "precision": 0.0
+            },
+            "ensemble": {}
+          },
+          {
+            "generation": 2,
+            "split_sizes": {},
+            "evaluation": {
+              "roc_auc": 0.5,
+              "recall": 0.0,
+              "precision": 0.0
+            },
+            "ensemble": {}
+          }
+        ],
+        "policy_comparison": {
+          "wraith_linucb": {
+            "avg_reward": 618.543277522249,
+            "final_cumulative": 3092.716387611245,
+            "n_rounds": 5
+          },
+          "random": {
+            "avg_reward": 618.543277522249,
+            "final_cumulative": 3092.716387611245,
+            "n_rounds": 5
+          },
+          "rule_mutation": {
+            "avg_reward": 618.543277522249,
+            "final_cumulative": 3092.716387611245,
+            "n_rounds": 5
+          }
+        },
+        "generated_at": "2026-08-31T08:09:31.814558Z"
+      }
+    ],
+    "aggregated": {
+      "policies": {
+        "wraith_linucb": {
+          "mean_avg_reward": 618.543277522249,
+          "std_avg_reward": 0.0,
+          "ci_low": 618.543277522249,
+          "ci_high": 618.543277522249
+        },
+        "random": {
+          "mean_avg_reward": 618.543277522249,
+          "std_avg_reward": 0.0,
+          "ci_low": 618.543277522249,
+          "ci_high": 618.543277522249
+        },
+        "rule_mutation": {
+          "mean_avg_reward": 618.543277522249,
+          "std_avg_reward": 0.0,
+          "ci_low": 618.543277522249,
+          "ci_high": 618.543277522249
+        }
+      },
+      "significance": {
+        "wraith_vs_random": {
+          "test": "wilcoxon",
+          "n_pairs": 1,
+          "p_value": 1.0,
+          "significant": false
+        },
+        "wraith_vs_rule_mutation": {
+          "test": "wilcoxon",
+          "n_pairs": 1,
+          "p_value": 1.0,
+          "significant": false
+        }
+      },
+      "sentinel_generation_trends": {
+        "roc_auc": {
+          "mean": 0.5,
+          "std": 0.0,
+          "ci_low": 0.5,
+          "ci_high": 0.5
+        },
+        "recall": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "precision": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      "reality_check": {
+        "synthetic_point": {
+          "prevalence": 0.5,
+          "precision": 0.0
+        },
+        "realistic_points": [
+          {
+            "prevalence": 0.0001,
+            "precision": 0.0
+          },
+          {
+            "prevalence": 0.0002,
+            "precision": 0.0
+          },
+          {
+            "prevalence": 0.001,
+            "precision": 0.0
+          },
+          {
+            "prevalence": 0.01,
+            "precision": 0.0
+          },
+          {
+            "prevalence": 0.02,
+            "precision": 0.0
+          }
+        ],
+        "method": "prevalence_reweight",
+        "note": "Trend is illustrative — only the synthetic point is a measured datapoint. Realistic points are reweighted estimates, not additional measurements."
+      }
+    },
+    "generated_at": "2026-08-31T08:09:31.888565Z"
+  }
+}

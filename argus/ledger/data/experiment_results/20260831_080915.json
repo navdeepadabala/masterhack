@@ -1,0 +1,816 @@
+{
+  "name": "experiment_results",
+  "version": "20260831_080915",
+  "generated_at": "2026-08-31T08:09:15.535279Z",
+  "data": {
+    "n_seeds": 2,
+    "n_rounds": 10,
+    "per_seed": [
+      {
+        "seed": 42,
+        "wraith_results": {
+          "wraith_linucb": {
+            "policy_name": "wraith_linucb",
+            "rewards_per_round": [
+              1022.9363317946325,
+              994.0271748985944,
+              1055.2448381289346,
+              10.675680873171613,
+              9.832361915911983,
+              10.321836396276781,
+              1099.4535453610667,
+              954.539635065042,
+              991.3030209438219,
+              -0.6
+            ],
+            "components_per_round": [
+              {
+                "fidelity_value": 1023.0363317946325,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1022.9363317946325
+              },
+              {
+                "fidelity_value": 994.1271748985944,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 994.0271748985944
+              },
+              {
+                "fidelity_value": 1055.3448381289345,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1055.2448381289346
+              },
+              {
+                "fidelity_value": 10.775680873171613,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.675680873171613
+              },
+              {
+                "fidelity_value": 9.932361915911983,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 9.832361915911983
+              },
+              {
+                "fidelity_value": 10.421836396276781,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.321836396276781
+              },
+              {
+                "fidelity_value": 1099.5535453610667,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1099.4535453610667
+              },
+              {
+                "fidelity_value": 954.6396350650421,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 954.539635065042
+              },
+              {
+                "fidelity_value": 991.403020943822,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 991.3030209438219
+              },
+              {
+                "fidelity_value": 0.0,
+                "detection_cost": 0.5,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": -0.6
+              }
+            ],
+            "cumulative_rewards": [
+              1022.9363317946325,
+              2016.963506693227,
+              3072.2083448221615,
+              3082.884025695333,
+              3092.716387611245,
+              3103.038224007522,
+              4202.491769368588,
+              5157.03140443363,
+              6148.334425377452,
+              6147.734425377452
+            ],
+            "avg_reward": 614.7734425377453,
+            "n_rounds": 10
+          },
+          "random": {
+            "policy_name": "random",
+            "rewards_per_round": [
+              1022.9363317946325,
+              994.0271748985944,
+              1055.2448381289346,
+              10.675680873171613,
+              9.832361915911983,
+              10.321836396276781,
+              1099.4535453610667,
+              954.539635065042,
+              991.3030209438219,
+              -0.6
+            ],
+            "components_per_round": [
+              {
+                "fidelity_value": 1023.0363317946325,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1022.9363317946325
+              },
+              {
+                "fidelity_value": 994.1271748985944,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 994.0271748985944
+              },
+              {
+                "fidelity_value": 1055.3448381289345,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1055.2448381289346
+              },
+              {
+                "fidelity_value": 10.775680873171613,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.675680873171613
+              },
+              {
+                "fidelity_value": 9.932361915911983,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 9.832361915911983
+              },
+              {
+                "fidelity_value": 10.421836396276781,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.321836396276781
+              },
+              {
+                "fidelity_value": 1099.5535453610667,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1099.4535453610667
+              },
+              {
+                "fidelity_value": 954.6396350650421,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 954.539635065042
+              },
+              {
+                "fidelity_value": 991.403020943822,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 991.3030209438219
+              },
+              {
+                "fidelity_value": 0.0,
+                "detection_cost": 0.5,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": -0.6
+              }
+            ],
+            "cumulative_rewards": [
+              1022.9363317946325,
+              2016.963506693227,
+              3072.2083448221615,
+              3082.884025695333,
+              3092.716387611245,
+              3103.038224007522,
+              4202.491769368588,
+              5157.03140443363,
+              6148.334425377452,
+              6147.734425377452
+            ],
+            "avg_reward": 614.7734425377453,
+            "n_rounds": 10
+          },
+          "rule_mutation": {
+            "policy_name": "rule_mutation",
+            "rewards_per_round": [
+              1022.9363317946325,
+              994.0271748985944,
+              1055.2448381289346,
+              10.675680873171613,
+              9.832361915911983,
+              10.321836396276781,
+              1099.4535453610667,
+              954.539635065042,
+              991.3030209438219,
+              -0.6
+            ],
+            "components_per_round": [
+              {
+                "fidelity_value": 1023.0363317946325,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1022.9363317946325
+              },
+              {
+                "fidelity_value": 994.1271748985944,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 994.0271748985944
+              },
+              {
+                "fidelity_value": 1055.3448381289345,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1055.2448381289346
+              },
+              {
+                "fidelity_value": 10.775680873171613,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.675680873171613
+              },
+              {
+                "fidelity_value": 9.932361915911983,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 9.832361915911983
+              },
+              {
+                "fidelity_value": 10.421836396276781,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.321836396276781
+              },
+              {
+                "fidelity_value": 1099.5535453610667,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1099.4535453610667
+              },
+              {
+                "fidelity_value": 954.6396350650421,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 954.539635065042
+              },
+              {
+                "fidelity_value": 991.403020943822,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 991.3030209438219
+              },
+              {
+                "fidelity_value": 0.0,
+                "detection_cost": 0.5,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": -0.6
+              }
+            ],
+            "cumulative_rewards": [
+              1022.9363317946325,
+              2016.963506693227,
+              3072.2083448221615,
+              3082.884025695333,
+              3092.716387611245,
+              3103.038224007522,
+              4202.491769368588,
+              5157.03140443363,
+              6148.334425377452,
+              6147.734425377452
+            ],
+            "avg_reward": 614.7734425377453,
+            "n_rounds": 10
+          }
+        },
+        "sentinel_generations": [
+          {
+            "generation": 0,
+            "split_sizes": {},
+            "evaluation": {
+              "roc_auc": 0.5,
+              "recall": 0.0,
+              "precision": 0.0
+            },
+            "ensemble": {}
+          },
+          {
+            "generation": 1,
+            "split_sizes": {},
+            "evaluation": {
+              "roc_auc": 0.5,
+              "recall": 0.0,
+              "precision": 0.0
+            },
+            "ensemble": {}
+          },
+          {
+            "generation": 2,
+            "split_sizes": {},
+            "evaluation": {
+              "roc_auc": 0.5,
+              "recall": 0.0,
+              "precision": 0.0
+            },
+            "ensemble": {}
+          }
+        ],
+        "policy_comparison": {
+          "wraith_linucb": {
+            "avg_reward": 614.7734425377453,
+            "final_cumulative": 6147.734425377452,
+            "n_rounds": 10
+          },
+          "random": {
+            "avg_reward": 614.7734425377453,
+            "final_cumulative": 6147.734425377452,
+            "n_rounds": 10
+          },
+          "rule_mutation": {
+            "avg_reward": 614.7734425377453,
+            "final_cumulative": 6147.734425377452,
+            "n_rounds": 10
+          }
+        },
+        "generated_at": "2026-08-31T08:09:14.856542Z"
+      },
+      {
+        "seed": 43,
+        "wraith_results": {
+          "wraith_linucb": {
+            "policy_name": "wraith_linucb",
+            "rewards_per_round": [
+              978.6254120350218,
+              1046.5347347740726,
+              918.5377754111582,
+              10.54426681427628,
+              10.174313613639805,
+              10.737167708283744,
+              1053.101143895459,
+              1030.50124278814,
+              902.112379327309,
+              -0.6
+            ],
+            "components_per_round": [
+              {
+                "fidelity_value": 978.7254120350218,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 978.6254120350218
+              },
+              {
+                "fidelity_value": 1046.6347347740725,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1046.5347347740726
+              },
+              {
+                "fidelity_value": 918.6377754111583,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 918.5377754111582
+              },
+              {
+                "fidelity_value": 10.64426681427628,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.54426681427628
+              },
+              {
+                "fidelity_value": 10.274313613639805,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.174313613639805
+              },
+              {
+                "fidelity_value": 10.837167708283744,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.737167708283744
+              },
+              {
+                "fidelity_value": 1053.201143895459,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1053.101143895459
+              },
+              {
+                "fidelity_value": 1030.6012427881399,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1030.50124278814
+              },
+              {
+                "fidelity_value": 902.212379327309,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 902.112379327309
+              },
+              {
+                "fidelity_value": 0.0,
+                "detection_cost": 0.5,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": -0.6
+              }
+            ],
+            "cumulative_rewards": [
+              978.6254120350218,
+              2025.1601468090944,
+              2943.6979222202526,
+              2954.242189034529,
+              2964.4165026481687,
+              2975.1536703564525,
+              4028.2548142519117,
+              5058.756057040052,
+              5960.868436367361,
+              5960.268436367361
+            ],
+            "avg_reward": 596.0268436367361,
+            "n_rounds": 10
+          },
+          "random": {
+            "policy_name": "random",
+            "rewards_per_round": [
+              978.6254120350218,
+              1046.5347347740726,
+              918.5377754111582,
+              10.54426681427628,
+              10.174313613639805,
+              10.737167708283744,
+              1053.101143895459,
+              1030.50124278814,
+              902.112379327309,
+              -0.6
+            ],
+            "components_per_round": [
+              {
+                "fidelity_value": 978.7254120350218,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 978.6254120350218
+              },
+              {
+                "fidelity_value": 1046.6347347740725,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1046.5347347740726
+              },
+              {
+                "fidelity_value": 918.6377754111583,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 918.5377754111582
+              },
+              {
+                "fidelity_value": 10.64426681427628,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.54426681427628
+              },
+              {
+                "fidelity_value": 10.274313613639805,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.174313613639805
+              },
+              {
+                "fidelity_value": 10.837167708283744,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.737167708283744
+              },
+              {
+                "fidelity_value": 1053.201143895459,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1053.101143895459
+              },
+              {
+                "fidelity_value": 1030.6012427881399,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1030.50124278814
+              },
+              {
+                "fidelity_value": 902.212379327309,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 902.112379327309
+              },
+              {
+                "fidelity_value": 0.0,
+                "detection_cost": 0.5,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": -0.6
+              }
+            ],
+            "cumulative_rewards": [
+              978.6254120350218,
+              2025.1601468090944,
+              2943.6979222202526,
+              2954.242189034529,
+              2964.4165026481687,
+              2975.1536703564525,
+              4028.2548142519117,
+              5058.756057040052,
+              5960.868436367361,
+              5960.268436367361
+            ],
+            "avg_reward": 596.0268436367361,
+            "n_rounds": 10
+          },
+          "rule_mutation": {
+            "policy_name": "rule_mutation",
+            "rewards_per_round": [
+              978.6254120350218,
+              1046.5347347740726,
+              918.5377754111582,
+              10.54426681427628,
+              10.174313613639805,
+              10.737167708283744,
+              1053.101143895459,
+              1030.50124278814,
+              902.112379327309,
+              -0.6
+            ],
+            "components_per_round": [
+              {
+                "fidelity_value": 978.7254120350218,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 978.6254120350218
+              },
+              {
+                "fidelity_value": 1046.6347347740725,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1046.5347347740726
+              },
+              {
+                "fidelity_value": 918.6377754111583,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 918.5377754111582
+              },
+              {
+                "fidelity_value": 10.64426681427628,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.54426681427628
+              },
+              {
+                "fidelity_value": 10.274313613639805,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.174313613639805
+              },
+              {
+                "fidelity_value": 10.837167708283744,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 10.737167708283744
+              },
+              {
+                "fidelity_value": 1053.201143895459,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1053.101143895459
+              },
+              {
+                "fidelity_value": 1030.6012427881399,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 1030.50124278814
+              },
+              {
+                "fidelity_value": 902.212379327309,
+                "detection_cost": 0.0,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": 902.112379327309
+              },
+              {
+                "fidelity_value": 0.0,
+                "detection_cost": 0.5,
+                "resource_cost": 0.1,
+                "novelty_bonus": 0.0,
+                "total": -0.6
+              }
+            ],
+            "cumulative_rewards": [
+              978.6254120350218,
+              2025.1601468090944,
+              2943.6979222202526,
+              2954.242189034529,
+              2964.4165026481687,
+              2975.1536703564525,
+              4028.2548142519117,
+              5058.756057040052,
+              5960.868436367361,
+              5960.268436367361
+            ],
+            "avg_reward": 596.0268436367361,
+            "n_rounds": 10
+          }
+        },
+        "sentinel_generations": [
+          {
+            "generation": 0,
+            "split_sizes": {},
+            "evaluation": {
+              "roc_auc": 0.5,
+              "recall": 0.0,
+              "precision": 0.0
+            },
+            "ensemble": {}
+          },
+          {
+            "generation": 1,
+            "split_sizes": {},
+            "evaluation": {
+              "roc_auc": 0.5,
+              "recall": 0.0,
+              "precision": 0.0
+            },
+            "ensemble": {}
+          },
+          {
+            "generation": 2,
+            "split_sizes": {},
+            "evaluation": {
+              "roc_auc": 0.5,
+              "recall": 0.0,
+              "precision": 0.0
+            },
+            "ensemble": {}
+          }
+        ],
+        "policy_comparison": {
+          "wraith_linucb": {
+            "avg_reward": 596.0268436367361,
+            "final_cumulative": 5960.268436367361,
+            "n_rounds": 10
+          },
+          "random": {
+            "avg_reward": 596.0268436367361,
+            "final_cumulative": 5960.268436367361,
+            "n_rounds": 10
+          },
+          "rule_mutation": {
+            "avg_reward": 596.0268436367361,
+            "final_cumulative": 5960.268436367361,
+            "n_rounds": 10
+          }
+        },
+        "generated_at": "2026-08-31T08:09:15.450912Z"
+      }
+    ],
+    "aggregated": {
+      "policies": {
+        "wraith_linucb": {
+          "mean_avg_reward": 605.4001430872406,
+          "std_avg_reward": 13.25584720708787,
+          "ci_low": 596.026843636736,
+          "ci_high": 614.7734425377452
+        },
+        "random": {
+          "mean_avg_reward": 605.4001430872406,
+          "std_avg_reward": 13.25584720708787,
+          "ci_low": 596.026843636736,
+          "ci_high": 614.7734425377452
+        },
+        "rule_mutation": {
+          "mean_avg_reward": 605.4001430872406,
+          "std_avg_reward": 13.25584720708787,
+          "ci_low": 596.026843636736,
+          "ci_high": 614.7734425377452
+        }
+      },
+      "significance": {
+        "wraith_vs_random": {
+          "test": "wilcoxon",
+          "n_pairs": 2,
+          "statistic": 0.0,
+          "p_value": 1.0,
+          "significant": false
+        },
+        "wraith_vs_rule_mutation": {
+          "test": "wilcoxon",
+          "n_pairs": 2,
+          "statistic": 0.0,
+          "p_value": 1.0,
+          "significant": false
+        }
+      },
+      "sentinel_generation_trends": {
+        "roc_auc": {
+          "mean": 0.5,
+          "std": 0.0,
+          "ci_low": 0.5,
+          "ci_high": 0.5
+        },
+        "recall": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "precision": {
+          "mean": 0.0,
+          "std": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      "reality_check": {
+        "synthetic_point": {
+          "prevalence": 0.5,
+          "precision": 0.0
+        },
+        "realistic_points": [
+          {
+            "prevalence": 0.0001,
+            "precision": 0.0
+          },
+          {
+            "prevalence": 0.0002,
+            "precision": 0.0
+          },
+          {
+            "prevalence": 0.001,
+            "precision": 0.0
+          },
+          {
+            "prevalence": 0.01,
+            "precision": 0.0
+          },
+          {
+            "prevalence": 0.02,
+            "precision": 0.0
+          }
+        ],
+        "method": "prevalence_reweight",
+        "note": "Trend is illustrative — only the synthetic point is a measured datapoint. Realistic points are reweighted estimates, not additional measurements."
+      }
+    },
+    "generated_at": "2026-08-31T08:09:15.533149Z"
+  }
+}

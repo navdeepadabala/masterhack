@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.coverage
+.mypy_cache/
+.ruff_cache/
+
+# Env
+.env
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Dashboard build artifacts
+dashboard/dist/
+dashboard/node_modules/
+
+# Generated artifacts (versioned evidence is committed under data/)
+*.log

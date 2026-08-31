@@ -1,0 +1,938 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-08-31T00:00:00Z",
+  "archetypes": [
+    {
+      "id": "card_craftering",
+      "name": "Card Craftering",
+      "channel": "pos",
+      "rail": "card",
+      "objective": "Open a new card account and use it for systematic small-to-large purchase escalation.",
+      "description": "Attackers open a new card account and make small test purchases to establish normal behavior, then make large fraudulent purchases to test detection systems.",
+      "mitigations": [
+        "Velocity checks on new card activity",
+        "Amount step-up detection",
+        "Manual review of large first-week charges"
+      ],
+      "event_sequences": [
+        {
+          "name": "test_then_bust",
+          "description": "Small test purchase followed by large fraudulent purchase",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 2.00, "max": 5.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 500.00, "max": 1500.00}
+              },
+              "conditions": [
+                {
+                  "event_idx": 2,
+                  "field": "params.amount",
+                  "op": "lt",
+                  "value": {"min": 10.00, "max": 50.00}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "multiple_small",
+          "description": "Multiple small purchases to build trust",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 2.00, "max": 5.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 2.00, "max": 5.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 2.00, "max": 5.00}
+              },
+              "conditions": []
+            }
+          ]
+        },
+        {
+          "name": "single_large",
+          "description": "Direct large purchase without test",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 500.00, "max": 1500.00}
+              },
+              "conditions": []
+            }
+          ]
+        }
+      ],
+      "genai_enabled": false
+    },
+    {
+      "id": "account_takeover",
+      "name": "Account Takeover",
+      "channel": "online",
+      "rail": "card",
+      "objective": "Gain unauthorized access to an existing account and perform fraudulent transactions.",
+      "description": "Attackers compromise an existing account through phishing or credential stuffing, then make unauthorized payments or transfers.",
+      "mitigations": [
+        "Multi-factor authentication",
+        "Device fingerprinting",
+        "Transaction anomaly detection"
+      ],
+      "event_sequences": [
+        {
+          "name": "phishing_then_transfer",
+          "description": "Phishing attack followed by unauthorized transfer",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "login",
+              "actors": ["customer", "device"],
+              "params": {
+                "username": "attacker-controlled",
+                "password": "stolen"
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 100.00, "max": 500.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "transfer",
+              "actors": ["customer", "beneficiary"],
+              "params": {
+                "amount": {"min": 100.00, "max": 500.00}
+              },
+              "conditions": []
+            }
+          ]
+        },
+        {
+          "name": "password_reset_abuse",
+          "description": "Abuse of password reset flow to gain account access",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "login",
+              "actors": ["customer", "device"],
+              "params": {
+                "username": "attacker-controlled",
+                "password": "stolen"
+              },
+              "conditions": []
+            },
+            {
+              "type": "password_reset",
+              "actors": ["customer", "device"],
+              "params": {
+                "email": "attacker-controlled"
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 50.00, "max": 200.00}
+              },
+              "conditions": []
+            }
+          ]
+        },
+        {
+          "name": "beneficiary_then_cashout",
+          "description": "Add fraudulent beneficiary then cash out",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "login",
+              "actors": ["customer", "device"],
+              "params": {
+                "username": "attacker-controlled",
+                "password": "stolen"
+              },
+              "conditions": []
+            },
+            {
+              "type": "beneficiary_add",
+              "actors": ["customer", "beneficiary"],
+              "params": {
+                "name": "mule-account",
+                "bank": "different-institution"
+              },
+              "conditions": []
+            },
+            {
+              "type": "transfer",
+              "actors": ["customer", "beneficiary"],
+              "params": {
+                "amount": {"min": 200.00, "max": 1000.00}
+              },
+              "conditions": []
+            }
+          ]
+        }
+      ],
+      "genai_enabled": false
+    },
+    {
+      "id": "friendly_fraud",
+      "name": "Friendly Fraud",
+      "channel": "online",
+      "rail": "card",
+      "objective": "Make a legitimate purchase then dispute it to get goods/services for free.",
+      "description": "Customer makes a purchase, receives goods/services, then files a false dispute claiming non-receipt or unauthorized transaction.",
+      "mitigations": [
+        "Delivery confirmation requirements",
+        "Customer history analysis",
+        "Dispute velocity limits"
+      ],
+      "event_sequences": [
+        {
+          "name": "normal_then_dispute",
+          "description": "Normal purchase followed by false dispute",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 50.00, "max": 300.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "goods_received",
+              "actors": ["customer", "merchant"],
+              "params": {
+                "confirmation": "yes"
+              },
+              "conditions": []
+            },
+            {
+              "type": "dispute",
+              "actors": ["customer", "merchant"],
+              "params": {
+                "reason": "item_not_received",
+                "amount": {"min": 50.00, "max": 300.00}
+              },
+              "conditions": [
+                {
+                  "event_idx": 2,
+                  "field": "params.amount",
+                  "op": "eq",
+                  "value": {"min": 50.00, "max": 300.00}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "recurring_abuse",
+          "description": "Abuse of subscription service with false disputes",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 10.00, "max": 30.00},
+                "recurring": true
+              },
+              "conditions": []
+            },
+            {
+              "type": "service_used",
+              "actors": ["customer", "merchant"],
+              "params": {
+                "duration": {"min": 1, "max": 30}
+              },
+              "conditions": []
+            },
+            {
+              "type": "dispute",
+              "actors": ["customer", "merchant"],
+              "params": {
+                "reason": "unauthorized",
+                "amount": {"min": 10.00, "max": 30.00}
+              },
+              "conditions": [
+                {
+                  "event_idx": 1,
+                  "field": "params.amount",
+                  "op": "eq",
+                  "value": {"min": 10.00, "max": 30.00}
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "genai_enabled": false
+    },
+    {
+      "id": "merchant_collusion",
+      "name": "Merchant Collusion",
+      "channel": "pos",
+      "rail": "card",
+      "objective": "Collude with a merchant to process fake transactions for cash-out.",
+      "description": "Fraudster works with a dishonest merchant to run stolen cards through a terminal, keeping a percentage of the proceeds.",
+      "mitigations": [
+        "Merchant monitoring",
+        "Transaction pattern analysis",
+        "High-risk merchant reviews"
+      ],
+      "event_sequences": [
+        {
+          "name": "stolen_card_cashout",
+          "description": "Process stolen cards through colluding merchant",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 100.00, "max": 500.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 100.00, "max": 500.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 100.00, "max": 500.00}
+              },
+              "conditions": []
+            }
+          ]
+        },
+        {
+          "name": "refund_fraud",
+          "description": "Process fake refunds to colluding merchant",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "refund",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 50.00, "max": 300.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "refund",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 50.00, "max": 300.00}
+              },
+              "conditions": []
+            }
+          ]
+        }
+      ],
+      "genai_enabled": false
+    },
+    {
+      "id": "synthetic_id_fraud",
+      "name": "Synthetic ID Fraud",
+      "channel": "online",
+      "rail": "ach",
+      "objective": "Create fake identities to open accounts and extract funds via ACH.",
+      "description": "Combine real and fake PII to create synthetic identities, open accounts, then bust out via ACH transfers.",
+      "mitigations": [
+        "Identity verification",
+        "SSN validity checks",
+        "Address/phone consistency checks"
+      ],
+      "event_sequences": [
+        {
+          "name": "build_then_bust",
+          "description": "Build credit then bust out via ACH",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 20.00, "max": 100.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 20.00, "max": 100.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "ach_transfer",
+              "actors": ["customer", "beneficiary"],
+              "params": {
+                "amount": {"min": 500.00, "max": 5000.00}
+              },
+              "conditions": []
+            }
+          ]
+        },
+        {
+          "name": "multiple_accounts",
+          "description": "Open multiple synthetic accounts for bust-out",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": [
+                {
+                  "event_idx": 0,
+                  "field": "actors.customer",
+                  "op": "ne",
+                  "value": "same-person"
+                }
+              ]
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "ach_transfer",
+              "actors": ["customer", "beneficiary"],
+              "params": {
+                "amount": {"min": 300.00, "max": 2000.00}
+              },
+              "conditions": []
+            }
+          ]
+        }
+      ],
+      "genai_enabled": false
+    },
+    {
+      "id": "device_farm",
+      "name": "Device Farm",
+      "channel": "mobile",
+      "rail": "card",
+      "objective": "Use emulators or rooted devices to create fake device fingerprints for fraud.",
+      "description": "Operate a farm of emulated or tampered devices to bypass device-based fraud detection.",
+      "mitigations": [
+        "Device integrity checks",
+        "Emulator detection",
+        "Root/jailbreak detection"
+      ],
+      "event_sequences": [
+        {
+          "name": "emulator_test",
+          "description": "Test emulator detection with small transactions",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 1.00, "max": 5.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 1.00, "max": 5.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 10.00, "max": 50.00}
+              },
+              "conditions": []
+            }
+          ]
+        },
+        {
+          "name": "high_velocity",
+          "description": "High-velocity attacks from device farm",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 5.00, "max": 20.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 5.00, "max": 20.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 5.00, "max": 20.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 5.00, "max": 20.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 5.00, "max": 20.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 5.00, "max": 20.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 5.00, "max": 20.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 5.00, "max": 20.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 5.00, "max": 20.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 5.00, "max": 20.00}
+              },
+              "conditions": []
+            }
+          ]
+        }
+      ],
+      "genai_enabled": false
+    },
+    {
+      "id": "beneficiary_fraud",
+      "name": "Beneficiary Fraud",
+      "channel": "online",
+      "rail": "ach",
+      "objective": "Use mule accounts or synthetic beneficiaries to launder funds.",
+      "description": "Recruit money mules or create synthetic beneficiary accounts to receive and transfer fraudulent funds.",
+      "mitigations": [
+        "Beneficiary verification",
+        "Mule account detection",
+        "Velocity checks on new beneficiaries"
+      ],
+      "event_sequences": [
+        {
+          "name": "mule_recruit_then_use",
+          "description": "Recruit mule then use for money laundering",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "beneficiary_add",
+              "actors": ["customer", "beneficiary"],
+              "params": {
+                "relationship": "mule",
+                "verification": "fake"
+              },
+              "conditions": []
+            },
+            {
+              "type": "ach_transfer",
+              "actors": ["customer", "beneficiary"],
+              "params": {
+                "amount": {"min": 100.00, "max": 1000.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "ach_transfer",
+              "actors": ["beneficiary", "customer"],
+              "params": {
+                "amount": {"min": 90.00, "max": 900.00}
+              },
+              "conditions": []
+            }
+          ]
+        },
+        {
+          "name": "synthetic_beneficiary_chain",
+          "description": "Chain of synthetic beneficiaries for layering",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "beneficiary_add",
+              "actors": ["customer", "beneficiary"],
+              "params": {
+                "relationship": "synthetic-1",
+                "verification": "fake"
+              },
+              "conditions": []
+            },
+            {
+              "type": "beneficiary_add",
+              "actors": ["beneficiary", "customer"],
+              "params": {
+                "relationship": "synthetic-2",
+                "verification": "fake"
+              },
+              "conditions": []
+            },
+            {
+              "type": "ach_transfer",
+              "actors": ["customer", "beneficiary"],
+              "params": {
+                "amount": {"min": 200.00, "max": 2000.00}
+              },
+              "conditions": []
+            }
+          ]
+        }
+      ],
+      "genai_enabled": false
+    },
+    {
+      "id": "first_party_fraud",
+      "name": "First-Party Fraud",
+      "channel": "online",
+      "rail": "card",
+      "objective": "Applicant intentionally provides false information to obtain credit with no intent to repay.",
+      "description": "Customer applies for credit using deliberately false information, maxes out the account, then abandons it.",
+      "mitigations": [
+        "Application fraud scoring",
+        "Identity verification",
+        "First payment default checks"
+      ],
+      "event_sequences": [
+        {
+          "name": "apply_max_out_default",
+          "description": "Apply with false info, max out, then default",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {
+                "income": {"min": 50000, "max": 100000},
+                "employment": "verified"
+              },
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 500.00, "max": 2000.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 500.00, "max": 2000.00}
+              },
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 500.00, "max": 2000.00}
+              },
+              "conditions": []
+            }
+          ]
+        },
+        {
+          "name": "bust_out_with_fake_docs",
+          "description": "Bust out using falsified documents",
+          "steps": [
+            {
+              "type": "account_open",
+              "actors": ["customer", "device"],
+              "params": {
+                "income": {"min": 30000, "max": 80000},
+                "employment": "fake-verified"
+              },
+              "conditions": []
+            },
+            {
+              "type": "device_bind",
+              "actors": ["customer", "device"],
+              "params": {},
+              "conditions": []
+            },
+            {
+              "type": "payment",
+              "actors": ["customer", "card", "merchant"],
+              "params": {
+                "amount": {"min": 1000.00, "max": 5000.00}
+              },
+              "conditions": []
+            }
+          ]
+        }
+      ],
+      "genai_enabled": false
+    }
+  ]
+}
